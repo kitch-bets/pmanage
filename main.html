@@ -13,129 +13,267 @@
     </style>
   </head>
   <body class="min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-lg">
-      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-3xl">
+      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
         Add New Project
       </h2>
       <form action="/api/add-project" method="POST">
-        <!-- Project Name -->
-        <div class="mb-4">
-          <label for="projectName" class="block text-gray-700 font-medium mb-2">
-            Project Name
-          </label>
-          <input
-            type="text"
-            id="projectName"
-            name="projectName"
-            placeholder="Enter project name"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+        <!-- Basic Project Details Section -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">
+            Project Details
+          </h3>
+          <!-- Project Name -->
+          <div class="mb-4">
+            <label for="projectName" class="block text-gray-700 font-medium mb-2">
+              Project Name
+            </label>
+            <input
+              type="text"
+              id="projectName"
+              name="projectName"
+              placeholder="Enter project name"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Project Description -->
+          <div class="mb-4">
+            <label for="projectDescription" class="block text-gray-700 font-medium mb-2">
+              Project Description
+            </label>
+            <textarea
+              id="projectDescription"
+              name="projectDescription"
+              rows="3"
+              placeholder="Brief description"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
+          <!-- Project Location -->
+          <div class="mb-4">
+            <label for="projectLocation" class="block text-gray-700 font-medium mb-2">
+              Project Location
+            </label>
+            <input
+              type="text"
+              id="projectLocation"
+              name="projectLocation"
+              placeholder="City, State, Country"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Lead Status -->
+          <div class="mb-4">
+            <label for="leadStatus" class="block text-gray-700 font-medium mb-2">
+              Lead Status
+            </label>
+            <select
+              id="leadStatus"
+              name="leadStatus"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="" disabled selected>Select status</option>
+              <option value="new">New</option>
+              <option value="in_progress">In Progress</option>
+              <option value="converted">Converted</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <!-- Estimated Budget -->
+          <div class="mb-4">
+            <label for="estimatedBudget" class="block text-gray-700 font-medium mb-2">
+              Estimated Budget ($)
+            </label>
+            <input
+              type="number"
+              id="estimatedBudget"
+              name="estimatedBudget"
+              placeholder="Enter estimated budget"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Start Date -->
+          <div class="mb-4">
+            <label for="startDate" class="block text-gray-700 font-medium mb-2">
+              Start Date
+            </label>
+            <input
+              type="date"
+              id="startDate"
+              name="startDate"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Estimated End Date -->
+          <div class="mb-4">
+            <label for="endDate" class="block text-gray-700 font-medium mb-2">
+              Estimated End Date
+            </label>
+            <input
+              type="date"
+              id="endDate"
+              name="endDate"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
-        <!-- Project Description -->
-        <div class="mb-4">
-          <label for="projectDescription" class="block text-gray-700 font-medium mb-2">
-            Project Description
-          </label>
-          <textarea
-            id="projectDescription"
-            name="projectDescription"
-            rows="3"
-            placeholder="Brief description"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ></textarea>
-        </div>
-        <!-- Project Location -->
-        <div class="mb-4">
-          <label for="projectLocation" class="block text-gray-700 font-medium mb-2">
-            Project Location
-          </label>
-          <input
-            type="text"
-            id="projectLocation"
-            name="projectLocation"
-            placeholder="City, State, Country"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <!-- Lead Status -->
-        <div class="mb-4">
-          <label for="leadStatus" class="block text-gray-700 font-medium mb-2">
-            Lead Status
-          </label>
-          <select
-            id="leadStatus"
-            name="leadStatus"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="" disabled selected>Select status</option>
-            <option value="new">New</option>
-            <option value="in_progress">In Progress</option>
-            <option value="converted">Converted</option>
-            <option value="closed">Closed</option>
-          </select>
-        </div>
-        <!-- Estimated Budget -->
-        <div class="mb-4">
-          <label for="estimatedBudget" class="block text-gray-700 font-medium mb-2">
-            Estimated Budget ($)
-          </label>
-          <input
-            type="number"
-            id="estimatedBudget"
-            name="estimatedBudget"
-            placeholder="Enter estimated budget"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <!-- Start Date -->
-        <div class="mb-4">
-          <label for="startDate" class="block text-gray-700 font-medium mb-2">
-            Start Date
-          </label>
-          <input
-            type="date"
-            id="startDate"
-            name="startDate"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <!-- Estimated End Date -->
-        <div class="mb-4">
-          <label for="endDate" class="block text-gray-700 font-medium mb-2">
-            Estimated End Date
-          </label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <!-- Project Manager -->
-        <div class="mb-6">
-          <label for="projectManager" class="block text-gray-700 font-medium mb-2">
+        
+        <!-- Project Manager Section -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">
             Project Manager
-          </label>
-          <input
-            type="text"
-            id="projectManager"
-            name="projectManager"
-            placeholder="Name of project manager"
-            required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          </h3>
+          <!-- Manager Name -->
+          <div class="mb-4">
+            <label for="managerName" class="block text-gray-700 font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="managerName"
+              name="managerName"
+              placeholder="Manager's Name"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Manager Email -->
+          <div class="mb-4">
+            <label for="managerEmail" class="block text-gray-700 font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="managerEmail"
+              name="managerEmail"
+              placeholder="Manager's Email"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Manager Phone -->
+          <div class="mb-4">
+            <label for="managerPhone" class="block text-gray-700 font-medium mb-2">
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="managerPhone"
+              name="managerPhone"
+              placeholder="Manager's Phone"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
+        
+        <!-- Calendar Section -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">
+            Project Calendar
+          </h3>
+          <!-- Simple Calendar Placeholder (static grid for demo) -->
+          <div id="calendar" class="grid grid-cols-7 gap-2 text-center">
+            <!-- Weekday Headers -->
+            <div class="font-bold">Sun</div>
+            <div class="font-bold">Mon</div>
+            <div class="font-bold">Tue</div>
+            <div class="font-bold">Wed</div>
+            <div class="font-bold">Thu</div>
+            <div class="font-bold">Fri</div>
+            <div class="font-bold">Sat</div>
+            <!-- Calendar Days (demo static dates) -->
+            <div class="py-2 border border-gray-200 rounded">27</div>
+            <div class="py-2 border border-gray-200 rounded">28</div>
+            <div class="py-2 border border-gray-200 rounded">29</div>
+            <div class="py-2 border border-gray-200 rounded">30</div>
+            <div class="py-2 border border-gray-200 rounded">1</div>
+            <div class="py-2 border border-gray-200 rounded">2</div>
+            <div class="py-2 border border-gray-200 rounded">3</div>
+            <div class="py-2 border border-gray-200 rounded">4</div>
+            <div class="py-2 border border-gray-200 rounded">5</div>
+            <div class="py-2 border border-gray-200 rounded">6</div>
+            <div class="py-2 border border-gray-200 rounded">7</div>
+            <div class="py-2 border border-gray-200 rounded">8</div>
+            <div class="py-2 border border-gray-200 rounded">9</div>
+            <div class="py-2 border border-gray-200 rounded">10</div>
+            <div class="py-2 border border-gray-200 rounded">11</div>
+            <div class="py-2 border border-gray-200 rounded">12</div>
+            <div class="py-2 border border-gray-200 rounded">13</div>
+            <div class="py-2 border border-gray-200 rounded">14</div>
+            <div class="py-2 border border-gray-200 rounded">15</div>
+            <div class="py-2 border border-gray-200 rounded">16</div>
+            <div class="py-2 border border-gray-200 rounded">17</div>
+            <div class="py-2 border border-gray-200 rounded">18</div>
+            <div class="py-2 border border-gray-200 rounded">19</div>
+            <div class="py-2 border border-gray-200 rounded">20</div>
+            <div class="py-2 border border-gray-200 rounded">21</div>
+            <div class="py-2 border border-gray-200 rounded">22</div>
+            <div class="py-2 border border-gray-200 rounded">23</div>
+            <div class="py-2 border border-gray-200 rounded">24</div>
+          </div>
+        </div>
+        
+        <!-- Lead Contact Info Section -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">
+            Lead Contact Information
+          </h3>
+          <!-- Lead Name -->
+          <div class="mb-4">
+            <label for="leadName" class="block text-gray-700 font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="leadName"
+              name="leadName"
+              placeholder="Lead's Name"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Lead Email -->
+          <div class="mb-4">
+            <label for="leadEmail" class="block text-gray-700 font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="leadEmail"
+              name="leadEmail"
+              placeholder="Lead's Email"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <!-- Lead Phone -->
+          <div class="mb-4">
+            <label for="leadPhone" class="block text-gray-700 font-medium mb-2">
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="leadPhone"
+              name="leadPhone"
+              placeholder="Lead's Phone"
+              required
+              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+        
         <!-- Submit Button -->
         <button
           type="submit"
-          class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+          class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors"
         >
           Save Project
         </button>
