@@ -3,177 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>rrsimmons.com | Add New Project</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>rrsimmons.com - Project Management</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
-        background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+        background: #F3F4F6;
       }
     </style>
   </head>
-  <body class="min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-3xl">
-      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
-        Add New Project
-      </h2>
-      <form id="projectForm">
+  <body class="flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-blue-600">rrsimmons.com</a>
+        <ul class="flex space-x-6">
+          <li><a href="#hero" class="hover:text-blue-600">Home</a></li>
+          <li><a href="#add-project" class="hover:text-blue-600">Add Project</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-blue-600 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-4">Welcome to Your Project Manager</h1>
+        <p class="text-lg mb-8">
+          Organize, plan, and track your construction projects effortlessly.
+        </p>
+        <a href="#add-project" class="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors">
+          Get Started
+        </a>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-12" id="add-project">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-10">Add New Project</h2>
+      <form id="projectForm" class="bg-white shadow-xl rounded-lg p-8">
         <!-- Project Details Section -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Details</h3>
-          <!-- Project Name -->
-          <div class="mb-4">
-            <label for="projectName" class="block text-gray-700 font-medium mb-2">
-              Project Name
-            </label>
-            <input
-              type="text"
-              id="projectName"
-              name="projectName"
-              placeholder="Enter project name"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <section class="mb-10">
+          <h3 class="text-2xl font-semibold text-gray-700 mb-4">Project Details</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project Name -->
+            <div>
+              <label for="projectName" class="block text-gray-700 font-medium mb-2">Project Name</label>
+              <input type="text" id="projectName" name="projectName" placeholder="Enter project name" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Project Location -->
+            <div>
+              <label for="projectLocation" class="block text-gray-700 font-medium mb-2">Project Location</label>
+              <input type="text" id="projectLocation" name="projectLocation" placeholder="City, State, Country" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Lead Status -->
+            <div>
+              <label for="leadStatus" class="block text-gray-700 font-medium mb-2">Lead Status</label>
+              <select id="leadStatus" name="leadStatus" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Select status</option>
+                <option value="new">New</option>
+                <option value="in_progress">In Progress</option>
+                <option value="converted">Converted</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+            <!-- Estimated Budget -->
+            <div>
+              <label for="estimatedBudget" class="block text-gray-700 font-medium mb-2">Estimated Budget ($)</label>
+              <input type="number" id="estimatedBudget" name="estimatedBudget" placeholder="Enter estimated budget" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Start Date -->
+            <div>
+              <label for="startDate" class="block text-gray-700 font-medium mb-2">Start Date</label>
+              <input type="date" id="startDate" name="startDate" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Estimated End Date -->
+            <div>
+              <label for="endDate" class="block text-gray-700 font-medium mb-2">Estimated End Date</label>
+              <input type="date" id="endDate" name="endDate" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
           </div>
           <!-- Project Description -->
-          <div class="mb-4">
-            <label for="projectDescription" class="block text-gray-700 font-medium mb-2">
-              Project Description
-            </label>
-            <textarea
-              id="projectDescription"
-              name="projectDescription"
-              rows="3"
-              placeholder="Brief description"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
+          <div class="mt-6">
+            <label for="projectDescription" class="block text-gray-700 font-medium mb-2">Project Description</label>
+            <textarea id="projectDescription" name="projectDescription" rows="3" placeholder="Brief description" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
           </div>
-          <!-- Project Location -->
-          <div class="mb-4">
-            <label for="projectLocation" class="block text-gray-700 font-medium mb-2">
-              Project Location
-            </label>
-            <input
-              type="text"
-              id="projectLocation"
-              name="projectLocation"
-              placeholder="City, State, Country"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Lead Status -->
-          <div class="mb-4">
-            <label for="leadStatus" class="block text-gray-700 font-medium mb-2">
-              Lead Status
-            </label>
-            <select
-              id="leadStatus"
-              name="leadStatus"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="" disabled selected>Select status</option>
-              <option value="new">New</option>
-              <option value="in_progress">In Progress</option>
-              <option value="converted">Converted</option>
-              <option value="closed">Closed</option>
-            </select>
-          </div>
-          <!-- Estimated Budget -->
-          <div class="mb-4">
-            <label for="estimatedBudget" class="block text-gray-700 font-medium mb-2">
-              Estimated Budget ($)
-            </label>
-            <input
-              type="number"
-              id="estimatedBudget"
-              name="estimatedBudget"
-              placeholder="Enter estimated budget"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Start Date -->
-          <div class="mb-4">
-            <label for="startDate" class="block text-gray-700 font-medium mb-2">
-              Start Date
-            </label>
-            <input
-              type="date"
-              id="startDate"
-              name="startDate"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Estimated End Date -->
-          <div class="mb-4">
-            <label for="endDate" class="block text-gray-700 font-medium mb-2">
-              Estimated End Date
-            </label>
-            <input
-              type="date"
-              id="endDate"
-              name="endDate"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-        </div>
-        
+        </section>
+
         <!-- Project Manager Section -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Manager</h3>
-          <!-- Manager Name -->
-          <div class="mb-4">
-            <label for="managerName" class="block text-gray-700 font-medium mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="managerName"
-              name="managerName"
-              placeholder="Manager's Name"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        <section class="mb-10">
+          <h3 class="text-2xl font-semibold text-gray-700 mb-4">Project Manager</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Manager Name -->
+            <div>
+              <label for="managerName" class="block text-gray-700 font-medium mb-2">Name</label>
+              <input type="text" id="managerName" name="managerName" placeholder="Manager's Name" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Manager Email -->
+            <div>
+              <label for="managerEmail" class="block text-gray-700 font-medium mb-2">Email</label>
+              <input type="email" id="managerEmail" name="managerEmail" placeholder="Manager's Email" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Manager Phone -->
+            <div>
+              <label for="managerPhone" class="block text-gray-700 font-medium mb-2">Phone</label>
+              <input type="tel" id="managerPhone" name="managerPhone" placeholder="Manager's Phone" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
           </div>
-          <!-- Manager Email -->
-          <div class="mb-4">
-            <label for="managerEmail" class="block text-gray-700 font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="managerEmail"
-              name="managerEmail"
-              placeholder="Manager's Email"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Manager Phone -->
-          <div class="mb-4">
-            <label for="managerPhone" class="block text-gray-700 font-medium mb-2">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="managerPhone"
-              name="managerPhone"
-              placeholder="Manager's Phone"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-        </div>
-        
+        </section>
+
         <!-- Calendar Section -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Calendar</h3>
-          <!-- Simple Calendar Placeholder -->
+        <section class="mb-10">
+          <h3 class="text-2xl font-semibold text-gray-700 mb-4">Project Calendar</h3>
+          <!-- Static Calendar Grid (for demo) -->
           <div id="calendar" class="grid grid-cols-7 gap-2 text-center">
             <!-- Weekday Headers -->
             <div class="font-bold">Sun</div>
@@ -183,7 +125,7 @@
             <div class="font-bold">Thu</div>
             <div class="font-bold">Fri</div>
             <div class="font-bold">Sat</div>
-            <!-- Calendar Days (static demo dates) -->
+            <!-- Calendar Days (demo dates) -->
             <div class="py-2 border border-gray-200 rounded">27</div>
             <div class="py-2 border border-gray-200 rounded">28</div>
             <div class="py-2 border border-gray-200 rounded">29</div>
@@ -213,70 +155,49 @@
             <div class="py-2 border border-gray-200 rounded">23</div>
             <div class="py-2 border border-gray-200 rounded">24</div>
           </div>
-        </div>
-        
-        <!-- Lead Contact Info Section -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">
-            Lead Contact Information
-          </h3>
-          <!-- Lead Name -->
-          <div class="mb-4">
-            <label for="leadName" class="block text-gray-700 font-medium mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="leadName"
-              name="leadName"
-              placeholder="Lead's Name"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Lead Email -->
-          <div class="mb-4">
-            <label for="leadEmail" class="block text-gray-700 font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="leadEmail"
-              name="leadEmail"
-              placeholder="Lead's Email"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <!-- Lead Phone -->
-          <div class="mb-4">
-            <label for="leadPhone" class="block text-gray-700 font-medium mb-2">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="leadPhone"
-              name="leadPhone"
-              placeholder="Lead's Phone"
-              required
-              class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-        </div>
-        
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors"
-        >
-          Save Project
-        </button>
-      </form>
-    </div>
+        </section>
 
-    <!-- JavaScript for local form handling -->
+        <!-- Lead Contact Info Section -->
+        <section class="mb-10">
+          <h3 class="text-2xl font-semibold text-gray-700 mb-4">Lead Contact Information</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Lead Name -->
+            <div>
+              <label for="leadName" class="block text-gray-700 font-medium mb-2">Name</label>
+              <input type="text" id="leadName" name="leadName" placeholder="Lead's Name" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Lead Email -->
+            <div>
+              <label for="leadEmail" class="block text-gray-700 font-medium mb-2">Email</label>
+              <input type="email" id="leadEmail" name="leadEmail" placeholder="Lead's Email" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+            <!-- Lead Phone -->
+            <div>
+              <label for="leadPhone" class="block text-gray-700 font-medium mb-2">Phone</label>
+              <input type="tel" id="leadPhone" name="leadPhone" placeholder="Lead's Phone" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Submission Button -->
+        <div class="text-center">
+          <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors">
+            Save Project
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4 text-center">
+        <p>&copy; 2025 rrsimmons.com. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript: Handle form submission locally -->
     <script>
-      document.getElementById('projectForm').addEventListener('submit', function(e) {
+      document.getElementById('projectForm').addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(this);
         console.log('Project Data:');
