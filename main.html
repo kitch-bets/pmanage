@@ -17,12 +17,10 @@
       <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
         Add New Project
       </h2>
-      <form action="/api/add-project" method="POST">
-        <!-- Basic Project Details Section -->
+      <form id="projectForm">
+        <!-- Project Details Section -->
         <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">
-            Project Details
-          </h3>
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Details</h3>
           <!-- Project Name -->
           <div class="mb-4">
             <label for="projectName" class="block text-gray-700 font-medium mb-2">
@@ -127,9 +125,7 @@
         
         <!-- Project Manager Section -->
         <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">
-            Project Manager
-          </h3>
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Manager</h3>
           <!-- Manager Name -->
           <div class="mb-4">
             <label for="managerName" class="block text-gray-700 font-medium mb-2">
@@ -176,10 +172,8 @@
         
         <!-- Calendar Section -->
         <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-700">
-            Project Calendar
-          </h3>
-          <!-- Simple Calendar Placeholder (static grid for demo) -->
+          <h3 class="text-xl font-semibold mb-4 text-gray-700">Project Calendar</h3>
+          <!-- Simple Calendar Placeholder -->
           <div id="calendar" class="grid grid-cols-7 gap-2 text-center">
             <!-- Weekday Headers -->
             <div class="font-bold">Sun</div>
@@ -189,7 +183,7 @@
             <div class="font-bold">Thu</div>
             <div class="font-bold">Fri</div>
             <div class="font-bold">Sat</div>
-            <!-- Calendar Days (demo static dates) -->
+            <!-- Calendar Days (static demo dates) -->
             <div class="py-2 border border-gray-200 rounded">27</div>
             <div class="py-2 border border-gray-200 rounded">28</div>
             <div class="py-2 border border-gray-200 rounded">29</div>
@@ -279,5 +273,19 @@
         </button>
       </form>
     </div>
+
+    <!-- JavaScript for local form handling -->
+    <script>
+      document.getElementById('projectForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        console.log('Project Data:');
+        formData.forEach((value, key) => {
+          console.log(key + ': ' + value);
+        });
+        alert('Project saved locally!');
+        this.reset();
+      });
+    </script>
   </body>
 </html>
