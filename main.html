@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>rrsimmons.com | Add New Project</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-lg">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+        Add New Project
+      </h2>
+      <form action="/api/add-project" method="POST">
+        <!-- Project Name -->
+        <div class="mb-4">
+          <label for="projectName" class="block text-gray-700 font-medium mb-2">
+            Project Name
+          </label>
+          <input
+            type="text"
+            id="projectName"
+            name="projectName"
+            placeholder="Enter project name"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Project Description -->
+        <div class="mb-4">
+          <label for="projectDescription" class="block text-gray-700 font-medium mb-2">
+            Project Description
+          </label>
+          <textarea
+            id="projectDescription"
+            name="projectDescription"
+            rows="3"
+            placeholder="Brief description"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+        </div>
+        <!-- Project Location -->
+        <div class="mb-4">
+          <label for="projectLocation" class="block text-gray-700 font-medium mb-2">
+            Project Location
+          </label>
+          <input
+            type="text"
+            id="projectLocation"
+            name="projectLocation"
+            placeholder="City, State, Country"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Lead Status -->
+        <div class="mb-4">
+          <label for="leadStatus" class="block text-gray-700 font-medium mb-2">
+            Lead Status
+          </label>
+          <select
+            id="leadStatus"
+            name="leadStatus"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="" disabled selected>Select status</option>
+            <option value="new">New</option>
+            <option value="in_progress">In Progress</option>
+            <option value="converted">Converted</option>
+            <option value="closed">Closed</option>
+          </select>
+        </div>
+        <!-- Estimated Budget -->
+        <div class="mb-4">
+          <label for="estimatedBudget" class="block text-gray-700 font-medium mb-2">
+            Estimated Budget ($)
+          </label>
+          <input
+            type="number"
+            id="estimatedBudget"
+            name="estimatedBudget"
+            placeholder="Enter estimated budget"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Start Date -->
+        <div class="mb-4">
+          <label for="startDate" class="block text-gray-700 font-medium mb-2">
+            Start Date
+          </label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Estimated End Date -->
+        <div class="mb-4">
+          <label for="endDate" class="block text-gray-700 font-medium mb-2">
+            Estimated End Date
+          </label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Project Manager -->
+        <div class="mb-6">
+          <label for="projectManager" class="block text-gray-700 font-medium mb-2">
+            Project Manager
+          </label>
+          <input
+            type="text"
+            id="projectManager"
+            name="projectManager"
+            placeholder="Name of project manager"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Save Project
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
